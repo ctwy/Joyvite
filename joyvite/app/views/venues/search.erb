@@ -9,14 +9,16 @@
   <% else %>
     <div class="results-header">
       <span class="sort-container">
-        sort by <button id="sortBy" class="dropdown-trigger">date updated</button>
+        sort by <button id="sortBy" class="dropdown-trigger sort-by-dropdown">Price</button>
       </span>
       <span class="search-matching-count">
         <%= @venues.length %> venues
       </span>
-      <span class="search-outside-count">
-        (<%= @outside_budget_count %> outside your budget, <%= @outside_date_count %> outside your date range)
-      </span>
+      <% if not @outside_counts.keys.empty? %>
+        <span class="search-outside-count">
+          (<% @outside_counts.each do |k,v| %><%= v %><% end %>)
+        </span>
+      <% end %>
     </div>
     <ul class="venue-list">
     <% @venues.each do |v| %>
@@ -28,7 +30,7 @@
           </div>
           <div class="package-price-label">minimum package</div>
           <div class="package-max-people">
-            <div class="package-max-people-count"><%= 500 %></div>
+            <div class="package-max-people-count"><%= v.max_people %></div>
             <div class="package-max-people-label">people max</div>
           </div>
           <button class="bookmark">BOOKMARK</button>
@@ -36,12 +38,19 @@
         <%= link_to v.name, venue_path(v), class: 'venue-name' %>
         <div class="venue-location"><%= v.city %></div>
         <div class="venue-options">
+          <% v.venue_features.each do |feat| %>
+            <img src="/assets/venue/<%= feat.icon_filename %>" title="<%= feat.name %>" />
+          <% end %>
         </div>
         <div class="venue-reviews-summary">
           <div class="venue-review-message">"Lorem ipsum doler sit amet..."</div>
-          <div class="venue-review-stars"></div>
+          <div class="venue-review-stars" title="<%= v.rating %> <%= v.rating == 1 ? 'star' : 'stars'%>">
+            <% for i in 1..v.rating %>
+              <img src="/assets/venue/star_on.png" />
+            <% end %>
+          </div>
           <%= link_to(venue_path(v), { :class => 'venue-reviews-link' }) do %>
-            47 reviews
+            <%= v.review_count %> reviews
           <% end %>
         </div>
       </li>

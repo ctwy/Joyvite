@@ -1,0 +1,10 @@
+update venues set max_people = 300, review_count = 30 where id = 22;
+update venues set max_people = 300, review_count = 22 where id = 23;
+update venues set max_people = 500, review_count = 19 where id = 24;
+update venues set max_people = 500, review_count = 14 where id = 25;
+update venues set max_people = 100, review_count = 29 where id = 26;
+update venues set max_people = 150, review_count = 22 where id = 27;
+update venues set max_people = 300, review_count = 15 where id = 28;
+update venues set max_people = 250, review_count = 29 where id = 29;
+update venues set max_people = 450, review_count = 13 where id = 30;
+update venues set max_people = 300, review_count = 9 where id = 31;

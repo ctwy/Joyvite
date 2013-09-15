@@ -261,6 +261,11 @@ a:hover {
   line-height: 13px;
 }
 
+.sort-by-dropdown {
+  width: 100px;
+  text-align: left;
+}
+
 .venue-list {
   margin: 0;
   padding: 0;
@@ -354,6 +359,10 @@ a:hover {
   font-size: 13px;
 }
 
+.venue-options {
+  margin-top: 3px;
+}
+
 .venue-reviews-summary {
   position: absolute;
   bottom: 16px;
@@ -372,6 +381,10 @@ a:hover {
   height: 16px;
   width: 80px;
   background-image: url('/assets/venue/star_off.png');
+}
+
+.venue-review-stars > img {
+  float: left;
 }
 
 .venue-reviews-link {
