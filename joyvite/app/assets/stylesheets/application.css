@@ -70,6 +70,41 @@ a:hover {
   background-color: #ffffff;
 }
 
+.image-carousel {
+  position: relative;
+}
+
+.carousel-button {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.image-carousel:hover > .carousel-button {
+  display: block;
+}
+
+.first-image:hover > .carousel-button-previous,
+.last-image:hover > .carousel-button-next {
+  display: none;
+}
+
+.carousel-button-previous {
+  left: 0;
+  right: 50%;
+  background-image: url('/assets/photo_previous.png');
+}
+
+.carousel-button-next {
+  left: 50%;
+  right: 0;
+  background-image: url('/assets/photo_next.png');
+}
+
 .header {
   margin: 0 auto;
   width: 900px;
@@ -284,6 +319,9 @@ a:hover {
 .venue-list-item-image {
   float: left;
   margin-right: 21px;
+}
+
+.venue-list-item-image > .image-carousel-image {
   width: 222px;
   height: 145px;
 }

@@ -23,7 +23,9 @@
     <ul class="venue-list">
     <% @venues.each do |v| %>
       <li class="venue-list-item">
-        <img class="venue-list-item-image" src="/assets/vendors/venue-<%= v.id %>/1.jpg" />
+        <div class="venue-list-item-image image-carousel first-image" data-venue-id="<%= v.id %>" data-venue-images="<%= v.images.to_json(:only => [:id]) %>">
+          <img class="image-carousel-image" src="/assets/vendors/<%= v.images[0].id %>.jpg" />
+        </div>
         <div class="package-details">
           <div class="package-price">
             <%= number_with_precision(v.price, :precision => 0) %>
@@ -39,7 +41,7 @@
         <div class="venue-location"><%= v.city %></div>
         <div class="venue-options">
           <% v.venue_features.each do |feat| %>
-            <img src="/assets/venue/<%= feat.icon_filename %>" title="<%= feat.name %>" />
+            <img src="/assets/venue/<%= feat.icon_filename %>" title="<%= feat.name %>" alt="<%= feat.name %>" />
           <% end %>
         </div>
         <div class="venue-reviews-summary">
@@ -62,8 +64,49 @@
 <% content_for :script do %>
   <script>
     jQuery(function ($) {
+      function changeImage(ev) {
+        var target = $(ev.target);
+        var changeBy = target.closest('.carousel-button').data('change-by');
+        var carousel = target.closest('.image-carousel');
+
+        var newIndex = carousel.data('current-image-index') + changeBy;
+        var images = carousel.data('images');
+        var image = carousel.find('.image-carousel-image');
+        image.attr('src', '/assets/vendors/' + images[newIndex].id + '.jpg');
+        carousel.data('current-image-index', newIndex);
+        carousel.toggleClass('first-image', newIndex == 0);
+        carousel.toggleClass('last-image', newIndex == images.length - 1);
+      }
+
+      function carouselize(carousel, images) {
+        carousel.data('images', images);
+        carousel.data('current-image-index', 0);
+
+        var previousButton = $('<div class="carousel-button carousel-button-previous"></div>')
+          .data('change-by', -1)
+          .click(changeImage);
+        var nextButton = $('<div class="carousel-button carousel-button-next"></div>')
+          .data('change-by', 1)
+          .click(changeImage);
+
+        carousel
+          .append(previousButton)
+          .append(nextButton);
+
+      }
+
       $('.dropdown-trigger').button();
       $('.bookmark').button();
+
+      $('.image-carousel').each(function (i, el) {
+        var carousel = $(el);
+        var images = JSON.parse(carousel.attr('data-venue-images'));
+        console.log('Images ' + i + ': ');
+        console.log(images);
+        if (images.length > 1) {
+          carouselize(carousel, images);
+        }
+      });
     });
   </script>
 <% end %>

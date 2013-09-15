@@ -14,8 +14,6 @@ class VenuesController < ApplicationController
       @venues = @venues.cost_within_budget(budget)
       @outside_counts[:budget] = "#{Venue.where('price > ?', budget).count} outside your budget"
     end
-    #@venues = @venues.available_from(query[:date_from]) if query.key ? :date_from
-    #@venues = @venues.available_to(query[:date_to]) if query.key ? :date_to
 
     @venues = @venues.order('price')
   end
