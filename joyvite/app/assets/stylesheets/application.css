@@ -145,9 +145,19 @@ input[type=submit] {
   text-align: right;
 }
 
-.filter-list {
+.sidebar {
   float: left;
-  margin: 0 21px 0 14px;
+  margin: 19px 21px 0 14px;
+}
+
+.venue_map {
+  margin-bottom: 16px;
+  border: 1px solid #cccccc;
+  padding: 4px 3px;
+}
+
+.filter-list {
+  margin: 0;
   padding: 0;
   width: 208px;
   list-style-type: none;
@@ -171,7 +181,7 @@ input[type=submit] {
 
 .results-panel {
   float: left;
-  width: 657px;
+  width: 648px;
 }
 
 .results-header {

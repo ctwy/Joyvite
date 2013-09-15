@@ -1,4 +1,7 @@
-<%= render partial: 'filters' %>
+<div class="sidebar">
+  <%= render partial: 'map' %>
+  <%= render partial: 'filters' %>
+</div>
 
 <div class="results-panel">
   <% if @venues.empty? %>
