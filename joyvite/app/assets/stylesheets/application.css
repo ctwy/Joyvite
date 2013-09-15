@@ -383,3 +383,9 @@ a:hover {
   color: #333333;
   font-weight: bold;
 }
+
+.details-mockup {
+  width: 900px;
+  height: 878px;
+  background: url('/assets/venue/details_mockup.jpg') center -50px no-repeat;
+}
