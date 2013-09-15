@@ -1,6 +1,6 @@
 <div class="home-search-container">
   <%= form_for :query, :as => :post, :url => 'venues/search', :html => { :class => 'home-search' }  do |f| %>
-    <%= f.text_field :budget, :class => 'home-search-budget', :placeholder => 'budget' %>
+    <%= f.text_field :budget, :class => 'home-search-budget', :placeholder => 'Budget' %>
     <div id="dateRangeContainer" class="home-search-date-range">
       <%= f.text_field :date_from, :class => 'home-search-date-from date-input', :placeholder => 'Start Date' %>
       <img src="/assets/datepicker_icon.png" class="datepicker-icon" />
@@ -17,6 +17,27 @@
   <div class="date-range-button-container">
     <button type="button" id="closeRangePicker">Close</button>
   </div>
+</div>
+
+<div class="selling_point selling_point_simplify">
+  <h1>SIMPLIFY</h1>
+  <p>
+    Search Napa Valley wedding venues in one clean, user-friendly site with multiple filters to meet your needs.  There's no need to browse through countless sites when you use Joyvite.
+  </p>
+</div>
+
+<div class="selling_point selling_point_money">
+  <h1>SAVE MONEY</h1>
+  <p>
+    Couples can spend hundreds of dollars hiring a wedding planner to find them a venue.  Save money with one click.
+  </p>
+</div>
+
+<div class="selling_point selling_point_connect">
+  <h1>CONNECT</h1>
+  <p>
+    Connect directly with wedding venue managers, schedule site visits, and even make tentative bookings.  Share bookmarked results with friends and family as you plan your special day.
+  </p>
 </div>
 
 <% content_for :script do %>
