@@ -1,0 +1,55 @@
+<div class="results-panel">
+  <% if @venues.empty? %>
+    No venues found.
+  <% else %>
+    <div class="results-header">
+      <span class="sort-container">
+        sort by <button id="sortBy" class="dropdown-trigger">date updated</button>
+      </span>
+      <span class="search-matching-count">
+        <%= @venues.length %> venues
+      </span>
+      <span class="search-outside-count">
+        (<%= @outside_budget_count %> outside your budget, <%= @outside_date_count %> outside your date range)
+      </span>
+    </div>
+    <ul class="venue-list">
+    <% @venues.each do |v| %>
+      <li class="venue-list-item">
+        <img class="venue-list-item-image" src="/assets/vendors/venue-<%= v.id %>/1.jpg" />
+        <div class="package-details">
+          <div class="package-price">
+            <%= number_with_precision(v.price, :precision => 0) %>
+          </div>
+          <div class="package-price-label">minimum package</div>
+          <div class="package-max-people">
+            <div class="package-max-people-count"><%= 500 %></div>
+            <div class="package-max-people-label">people max</div>
+          </div>
+          <button class="bookmark">BOOKMARK</button>
+        </div>
+        <%= link_to v.name, venue_path(v), class: 'venue-name' %>
+        <div class="venue-location"><%= v.city %></div>
+        <div class="venue-options">
+        </div>
+        <div class="venue-reviews-summary">
+          <div class="venue-review-message">"Lorem ipsum doler sit amet..."</div>
+          <div class="venue-review-stars"></div>
+          <%= link_to(venue_path(v), { :class => 'venue-reviews-link' }) do %>
+            47 reviews
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<% content_for :script do %>
+  <script>
+    jQuery(function ($) {
+      $('#sortBy').button();
+      $('.bookmark').button();
+    });
+  </script>
+<% end %>

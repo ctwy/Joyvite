@@ -34,11 +34,18 @@ input[type=text] {
   font-size: 12px;
 }
 
+button,
 input[type=submit] {
   padding: 0 12px;
   background-color: #8396a4;
   font-weight: bold;
   color: #ffffff;
+}
+
+
+
+.ui-corner-all {
+  border-radius: 1px;
 }
 
 .header {
@@ -48,7 +55,12 @@ input[type=submit] {
 }
 
 .logo {
-  margin-left: 20px;
+  margin-left: 18px;
+}
+
+.main {
+  margin: 0 auto;
+  width: 900px;
 }
 
 .home-search-container {
@@ -118,4 +130,177 @@ input[type=submit] {
   border-top: 1px solid #aaaaaa;
   padding: 4px;
   text-align: right;
+}
+
+.results-panel {
+  width: 700px;
+}
+
+.results-header {
+  margin: 19px 0 0;
+  padding-bottom: 6px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.search-matching-count {
+  font-weight: bold;
+}
+
+.sort-container {
+  float: right;
+  color: #8395a3;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 13px;
+}
+
+.dropdown-trigger {
+  margin: 0 0 0 8px;
+  border-color: #a1aec1;
+  padding-right: 12px;
+  height: 20px;
+  line-height: 11px;
+  color: #999999;
+  background: #ffffff url('/assets/dropdown_icon.png') right center no-repeat;
+}
+
+.dropdown-trigger > .ui-button-text {
+  padding: 0 4px;
+  background-color: #ffffff;
+}
+
+.venue-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  color: #999999;
+}
+
+.venue-list-item {
+  position: relative;
+  height: 145px;
+  border-top: 1px solid #a4acbf;
+  padding: 7px 0 17px;
+  overflow: hidden;
+}
+
+.venue-list-item-image {
+  float: left;
+  margin-right: 21px;
+  width: 222px;
+  height: 145px;
+}
+
+.package-details {
+  position: relative;
+  float: right;
+  width: 109px;
+  height: 150px;
+  color: #333333;
+  text-align: center;
+}
+
+.package-price {
+  display: inline-block;
+  font-size: 28px;
+  padding-left: 11px;
+  background: url('/assets/venue/cost_dollar_sign.png') left 10px no-repeat;
+}
+
+.package-price-label {
+  line-height: 9px;
+  font-size: 9px;
+}
+
+.package-max-people {
+  margin-top: 9px;
+}
+
+.package-max-people-count {
+  display: inline-block;
+  text-align: left;
+}
+
+.package-max-people-label {
+  display: inline-block;
+  text-align: left;
+  font-size: 9px;
+  width: 30px;
+}
+
+.bookmark {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border: none;
+  padding-left: 27px;
+  width: 109px;
+  height: 26px;
+  background: #8496a4 url('/assets/venue/bookmark_icon.png') 6px center no-repeat;
+  color: #ffffff;
+  font-size: 13px;
+  font-family: arial;
+}
+
+.bookmark > .ui-button-text {
+  padding: 8px 7px 8px 0;
+  line-height: 10px;
+}
+
+.venue-list-item:hover .bookmark {
+  display: block;
+}
+
+.venue-name {
+  color: #999999;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.venue-location {
+  font-size: 13px;
+}
+
+.venue-reviews-summary {
+  position: absolute;
+  bottom: 16px;
+  left: 243px;
+  right: 166px;
+  font-size: 13px;
+  color: #333333;
+}
+
+.venue-review-message {
+  margin-bottom: 3px;
+}
+
+.venue-review-stars {
+  float: left;
+  height: 16px;
+  width: 80px;
+  background-image: url('/assets/venue/star_off.png');
+}
+
+.venue-reviews-link {
+  display: block;
+  float: right;
+  border-bottom: 1px solid transparent;
+  padding-right: 17px;
+  line-height: 16px;
+  background: url('/assets/more_details_icon.png') right center no-repeat;
+  color: #333333;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.venue-name:hover {
+  text-decoration: underline;
+}
+
+.venue-reviews-link:hover {
+  border-color: #333333;
 }

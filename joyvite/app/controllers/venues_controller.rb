@@ -1,4 +1,8 @@
-class VenueController < ApplicationController
+class VenuesController < ApplicationController
+
+  def show
+    @venue = Venue.find(params[:id])
+  end
 
   def search
     query = params[:query]

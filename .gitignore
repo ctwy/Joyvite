@@ -5,13 +5,19 @@
 #   git config --global core.excludesfile ~/.gitignore_global
 
 # Ignore bundler config
-/.bundle
+.bundle
 
 # Ignore the default SQLite database.
-/db/*.sqlite3
+**/db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
-/tmp
-/log
-/config/database.yml
-/config/initializers/secret_token.rb
+**/tmp
+**/log
+
+# Ignore files that may contain secret data.
+**/config/database.yml
+**/config/initializers/secret_token.rb
+
+# Ignore Mac OS image metadata files.
+.DS_Store
+
