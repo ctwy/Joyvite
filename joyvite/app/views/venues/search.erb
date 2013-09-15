@@ -1,3 +1,5 @@
+<%= render partial: 'filters' %>
+
 <div class="results-panel">
   <% if @venues.empty? %>
     No venues found.
@@ -48,7 +50,7 @@
 <% content_for :script do %>
   <script>
     jQuery(function ($) {
-      $('#sortBy').button();
+      $('.dropdown-trigger').button();
       $('.bookmark').button();
     });
   </script>
