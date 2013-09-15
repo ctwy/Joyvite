@@ -1,0 +1,11 @@
+html, body {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.header {
+  padding-left: 200px;
+  background-color: #ffbe9e;
+}

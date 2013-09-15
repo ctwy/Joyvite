@@ -2,14 +2,14 @@ class VenueController < ApplicationController
 
   def search
     query = params[:query]
-    location = parse_location query[:location]
 
-    @location = location
-    if location.keys.length > 0
-      @venues = Venue
-      @venues = @venues.by_city(location[:city]) if location.key? :city
-      @venues = @venues.by_state(location[:state]) if location.key? :state
-      @venues = @venues.by_postal_code(location[:postal_code]) if location.key? :postal_code
+    @venues = Venue
+    #@venues = @venues.available_from(query[:date_from]) if query.key ? :date_from
+    #@venues = @venues.available_to(query[:date_to]) if query.key ? :date_to
+    @venues = @venues.costs_less_than(query[:budget].to_i) unless query[:budget].blank?
+
+    if @venues == Venue
+      @venues = Venue.all
     end
   end
 

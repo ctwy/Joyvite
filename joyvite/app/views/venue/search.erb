@@ -1,9 +1,9 @@
-<% if @venues %>
+<% if @venues.empty? %>
+  No venues found.
+<% else %>
   <ul>
   <% @venues.each do |v| %>
     <li>Name: <%= v.name %></li>
   <% end %>
   </ul>
-<% else %>
-  No venues found.
 <% end %>

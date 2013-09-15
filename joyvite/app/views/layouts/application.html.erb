@@ -2,13 +2,23 @@
 <html>
 <head>
   <title>Joyvite</title>
+  <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" media="all" rel="stylesheet" type="text/css">
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <div class="header">
+    <img class="logo" src="/assets/logo.gif" alt="Joyvite" />
+  </div>
 
+  <div class="main">
+    <%= yield %>
+  </div>
+
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <%= javascript_include_tag "application" %>
+  <%= yield :script %>
 </body>
 </html>

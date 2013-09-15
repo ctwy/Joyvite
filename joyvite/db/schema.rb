@@ -11,20 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130914194351) do
+ActiveRecord::Schema.define(:version => 20130915045740) do
 
   create_table "venues", :force => true do |t|
-    t.string   "name",          :null => false
-    t.string   "street_1",      :null => false
-    t.string   "street_2",      :null => false
-    t.string   "city",          :null => false
-    t.string   "state",         :null => false
-    t.string   "postal_code",   :null => false
+    t.string   "name",                                        :null => false
+    t.string   "street_1",                                    :null => false
+    t.string   "street_2",                                    :null => false
+    t.string   "city",                                        :null => false
+    t.string   "state",                                       :null => false
+    t.string   "postal_code",                                 :null => false
     t.string   "website"
     t.string   "contact_phone"
     t.string   "contact_email"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+    t.decimal  "price",         :precision => 8, :scale => 2
   end
 
 end

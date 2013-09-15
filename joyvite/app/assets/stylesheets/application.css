@@ -11,3 +11,111 @@
  *= require_self
  *= require_tree .
  */
+
+html, body {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  min-width: 900px;
+  width: 100%;
+  font-family: tahoma, geneva, arial;
+}
+
+input[type=text],
+input[type=submit] {
+  border: none;
+  border-radius: 2px;
+  height: 26px;
+  line-height: 14px;
+}
+
+input[type=text] {
+  padding: 0 4px;
+  font-size: 12px;
+}
+
+input[type=submit] {
+  padding: 0 12px;
+  background-color: #8396a4;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.header {
+  margin: 0 auto;
+  width: 900px;
+  background-color: #ffbe9e;
+}
+
+.logo {
+  margin-left: 20px;
+}
+
+.home-search-container {
+  position: relative;
+  margin: 0 auto;
+  padding-top: 176px;
+  width: 900px;
+  height: 216px;
+  background-image: url('/assets/landing_background.jpg');
+  background-size: contain;
+}
+
+.home-search {
+  display: inline-block;
+  margin-left: 211px;
+  padding: 7px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.home-search-budget {
+  width: 96px;
+}
+
+.home-search-date-range {
+  display: inline-block;
+  margin-left: 23px;
+  text-align: left;
+}
+
+.home-search-date-to {
+  margin-left: 3px;
+}
+
+.home-search-submit {
+  margin-left: 15px;
+}
+
+.date-input {
+  padding: 0 4px;
+  width: 91px;
+  height: 26px;
+}
+
+.datepicker-icon {
+  margin-left: -30px;
+  vertical-align: middle;
+}
+
+.date-range-picker-container {
+  position: absolute;
+  left: 0;
+  display: none;
+  margin-top: 4px;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-size: 10px;
+}
+
+.date-range-from-container,
+.date-range-to-container {
+  display: inline-block;
+}
+
+.date-range-button-container {
+  margin-top: 5px;
+  border-top: 1px solid #aaaaaa;
+  padding: 4px;
+  text-align: right;
+}

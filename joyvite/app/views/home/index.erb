@@ -1,5 +1,45 @@
-<%= form_for :query, :as => :post, :url => 'venue/search' do |f| %>
-  <%= f.text_field :location %>
-  <%= f.submit 'search' %>
-<% end %>
+<div class="home-search-container">
+  <%= form_for :query, :as => :post, :url => 'venue/search', :html => { :class => 'home-search' }  do |f| %>
+    <%= f.text_field :budget, :class => 'home-search-budget', :placeholder => 'budget' %>
+    <div id="dateRangeContainer" class="home-search-date-range">
+      <%= f.text_field :date_from, :class => 'home-search-date-from date-input', :placeholder => 'Start Date' %>
+      <img src="/assets/datepicker_icon.png" class="datepicker-icon" />
+      <%= f.text_field :date_to, :class => 'home-search-date-to date-input', :placeholder => 'End Date' %>
+      <img src="/assets/datepicker_icon.png" class="datepicker-icon" />
+    </div>
+    <%= f.submit 'Find Venues', :class => 'home-search-submit' %>
+  <% end %>
+</div>
 
+<div id="rangePickerContainer" class="date-range-picker-container">
+  <div id="rangeFromContainer" class="date-range-from-container"></div>
+  <div id="rangeToContainer" class="date-range-to-container"></div>
+  <div class="date-range-button-container">
+    <button type="button" id="closeRangePicker">Close</button>
+  </div>
+</div>
+
+<% content_for :script do %>
+<script>
+  jQuery(function ($) {
+    rangeContainer = $('#dateRangeContainer');
+    pickerContainer = $('#rangePickerContainer');
+
+    $('#rangeFromContainer').datepicker();
+    $('#rangeToContainer').datepicker();
+    $('#closeRangePicker').button().click(function () {
+      pickerContainer.hide();
+    });
+
+    rangeContainer.bind('click', function () {
+      var offset = rangeContainer.offset();
+      pickerContainer
+        .css({
+          top: offset.top + rangeContainer.outerHeight(),
+          left: offset.left
+        })
+        .show();
+    });
+  });
+</script>
+<% end %>
