@@ -40,6 +40,7 @@ input[type=submit] {
   background-color: #8396a4;
   font-weight: bold;
   color: #ffffff;
+  cursor: pointer;
 }
 
 a {
@@ -158,6 +159,7 @@ a:hover {
   display: inline-block;
   margin-left: 23px;
   text-align: left;
+  cursor: pointer;
 }
 
 .home-search-date-to {
@@ -170,8 +172,9 @@ a:hover {
 
 .date-input {
   padding: 0 4px;
-  width: 91px;
+  width: 110px;
   height: 26px;
+  cursor: pointer;
 }
 
 .datepicker-icon {
@@ -192,14 +195,15 @@ a:hover {
 
 .date-range-from-container,
 .date-range-to-container {
-  display: inline-block;
+  float: left;
   padding: 4px;
 }
 
 .date-range-button-container {
-  margin-top: 5px;
+  clear: both;
+  margin: 5px 4px 0;
   border-top: 1px solid #aaaaaa;
-  padding: 4px;
+  padding: 4px 0 4px 4px;
   text-align: right;
 }
 

@@ -45,9 +45,37 @@
   jQuery(function ($) {
     rangeContainer = $('#dateRangeContainer');
     pickerContainer = $('#rangePickerContainer');
+    fromPicker = $('#rangeFromContainer');
+    toPicker = $('#rangeToContainer');
 
-    $('#rangeFromContainer').datepicker();
-    $('#rangeToContainer').datepicker();
+    fromPicker.datepicker({
+      changeYear: true,
+      minDate: new Date(),
+      onSelect: function (v) {
+        $('#query_date_from').val(v);
+        var d = new Date(v);
+        var toMin = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1);
+        var toDate = toPicker.datepicker('getDate');
+        if (toDate < toMin) {
+          toPicker.datepicker('setDate', toMin);
+        }
+        toPicker.datepicker('option', 'minDate', toMin);
+      }
+    });
+    $('#rangeToContainer').datepicker({
+      changeYear: true,
+      minDate: new Date(),
+      onSelect: function (v) {
+        $('#query_date_to').val(v);
+        var d = new Date(v);
+        var fromMax = new Date(d.getFullYear(), d.getMonth(), d.getDate() - 1);
+        var fromDate = fromPicker.datepicker('getDate');
+        if (fromDate > fromMax) {
+          fromPicker.datepicker('setDate', fromMax);
+        }
+        fromPicker.datepicker('option', 'maxDate', fromMax);
+      }
+    });
     $('#closeRangePicker').button().click(function () {
       pickerContainer.hide();
     });
@@ -60,6 +88,14 @@
           left: offset.left
         })
         .show();
+    });
+
+    $('body').click(function (ev) {
+      var target = $(ev.target);
+      if (target.closest('#dateRangeContainer,#rangePickerContainer,#ui-datepicker-div,.ui-datepicker-header').length > 0) {
+        return;
+      }
+      pickerContainer.hide();
     });
   });
 </script>
