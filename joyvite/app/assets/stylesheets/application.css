@@ -242,10 +242,11 @@ a:hover {
   margin: 19px 21px 0 14px;
 }
 
-.venue_map {
+.venue-map {
   margin-bottom: 16px;
   border: 1px solid #cccccc;
   padding: 4px 3px;
+  height: 150px;
 }
 
 .filter-list {
